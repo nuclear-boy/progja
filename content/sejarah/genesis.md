@@ -1,7 +1,7 @@
 <div class="flow-root">
 <div class="float-left w-full md:w-5/12 mr-8 mb-4">
 <div class="border-4 border-indigo-100 rounded-2xl overflow-hidden shadow-lg transform rotate-2 hover:rotate-0 transition duration-300 cursor-pointer relative" id="genesis-photo-container" onclick="toggleGenesisPhoto(event)">
-<img id="genesis-photo" src="./logo/KB/joesdi.png" alt="Joesdi Ghazali" loading="lazy" decoding="async" class="w-full h-auto object-cover transition duration-500" style="filter: grayscale(100%);">
+<img id="genesis-photo" src="./logo/KB/joesdi.webp" alt="Joesdi Ghazali" loading="lazy" decoding="async" class="w-full h-auto object-cover transition duration-500" style="filter: grayscale(100%);">
 <div class="absolute top-2 right-2 bg-black/60 text-white text-[10px] px-2 py-0.5 rounded-full backdrop-blur-sm">
 <span id="photo-hint">📷 Klik</span>
 </div>

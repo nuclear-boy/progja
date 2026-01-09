@@ -14,7 +14,6 @@
     <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="dns-prefetch" href="https://www.transparenttextures.com">
 
     <!-- Non-blocking Font Loading -->
     <link
@@ -47,8 +46,8 @@
                         retro: ['VT323', 'monospace'],
                     },
                     backgroundImage: {
-                        'islamic-pattern': "url('https://www.transparenttextures.com/patterns/arabesque.png')",
-                        'paper-texture': "url('https://www.transparenttextures.com/patterns/cream-paper.png')"
+                        'islamic-pattern': "none",
+                        'paper-texture': "none"
                     }
                 }
             }
@@ -61,13 +60,14 @@
             background-color: #f8fafc;
             color: #334155;
             overflow-x: hidden;
-            background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
-            /* Tekstur halus */
+            /* Lightweight Pattern */
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 20px 20px;
         }
 
         /* Custom Scrollbar */
         ::-webkit-scrollbar {
-            width: 10px;
+            width: 8px;
         }
 
         ::-webkit-scrollbar-track {
@@ -76,8 +76,7 @@
 
         ::-webkit-scrollbar-thumb {
             background: #cbd5e1;
-            border-radius: 5px;
-            border: 2px solid #f1f5f9;
+            border-radius: 4px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
@@ -343,7 +342,7 @@
         <div class="flex items-center space-x-8">
             <div class="text-2xl font-bold text-indigo-900">
                 <a href="index.html">
-                    <img src="./logo/pwpii kalbar.png" alt="Logo" class="h-10 object-contain">
+                    <img src="./logo/pwpii kalbar.webp" alt="Logo" class="h-10 object-contain">
                 </a>
             </div>
             <div class="hidden md:flex space-x-6 text-gray-600 font-medium text-sm">
@@ -384,14 +383,20 @@
                     <div
                         class="absolute top-full left-0 w-56 bg-white border border-gray-100 shadow-xl rounded-2xl p-2 dropdown-menu opacity-0">
                         <a href="#"
-                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Riset
-                            Pelajar</a>
+                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold flex justify-between items-center">
+                            Riset Pelajar <span
+                                class="ml-1 px-1.5 py-0.5 bg-yellow-100 text-yellow-700 text-[9px] font-bold rounded-full border border-yellow-200 uppercase tracking-wide">Proses</span>
+                        </a>
                         <a href="#"
-                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Madrasah
-                            Digital</a>
+                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold flex justify-between items-center">
+                            Madrasah Digital <span
+                                class="ml-1 px-1.5 py-0.5 bg-yellow-100 text-yellow-700 text-[9px] font-bold rounded-full border border-yellow-200 uppercase tracking-wide">Proses</span>
+                        </a>
                         <a href="#"
-                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold">Website
-                            Cendekia</a>
+                            class="block px-4 py-3 hover:bg-indigo-50 rounded-xl transition text-gray-700 hover:text-indigo-600 font-semibold flex justify-between items-center">
+                            Website Cendekia <span
+                                class="ml-1 px-1.5 py-0.5 bg-yellow-100 text-yellow-700 text-[9px] font-bold rounded-full border border-yellow-200 uppercase tracking-wide">Proses</span>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -408,8 +413,8 @@
     <!-- HERO HEADER: SOFT & ELEGANT -->
     <header class="relative pt-24 pb-32 overflow-hidden bg-white">
         <!-- Soft Background Elements -->
-        <div
-            class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/arabesque.png')] opacity-[0.03]">
+        <div class="absolute inset-0 opacity-[0.03]"
+            style="background-image: radial-gradient(#4f46e5 1px, transparent 1px); background-size: 32px 32px;">
         </div>
         <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-indigo-50/50 to-transparent"></div>
         <div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-indigo-50/50 to-transparent"></div>
@@ -472,6 +477,53 @@
     </div>
 
     <!-- SECTION: 5 FASE KEBANGKITAN (VISUAL REVISION) -->
+    <!-- [OPTIMASI] Tailwind CLI Link -->
+    <!-- <link href="./dist/output.css" rel="stylesheet"> -->
+    <style>
+        #fase-skeleton {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            background: #f8fafc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s;
+        }
+
+        .sk-spin {
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg)
+            }
+
+            to {
+                transform: rotate(360deg)
+            }
+        }
+    </style>
+
+    <div id="fase-skeleton">
+        <div class="w-12 h-12 border-4 border-indigo-200 border-t-indigo-600 rounded-full sk-spin"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sk = document.getElementById('fase-skeleton');
+            const imgs = Array.from(document.images);
+            Promise.all(imgs.map(i => {
+                if (i.complete) return Promise.resolve();
+                return new Promise(r => { i.onload = i.onerror = r; });
+            })).then(() => {
+                sk.style.opacity = '0';
+                setTimeout(() => sk.style.display = 'none', 500);
+            });
+        });
+    </script>
+
     <section id="fase" class="py-24 px-6 relative bg-white">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-20">
@@ -482,13 +534,16 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-5 gap-6 lg:gap-8">
-
                 <!-- CARD 1: KESADARAN -->
                 <div class="fase-card group" onclick="openFase('fase1')">
                     <div class="fase-pattern-box bg-indigo-50">
                         <div class="islamic-bg"></div>
                         <div class="fase-icon-container">
-                            <span class="text-4xl">💡</span>
+                            <svg class="w-10 h-10 text-indigo-600" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
                         </div>
                     </div>
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
@@ -509,7 +564,10 @@
                     <div class="fase-pattern-box bg-green-50">
                         <div class="islamic-bg" style="filter: hue-rotate(90deg);"></div>
                         <div class="fase-icon-container">
-                            <span class="text-4xl">⚔️</span>
+                            <svg class="w-10 h-10 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M13 10V3L4 14h7v7l9-11h-7z" />
+                            </svg>
                         </div>
                     </div>
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
@@ -530,7 +588,10 @@
                     <div class="fase-pattern-box bg-blue-50">
                         <div class="islamic-bg" style="filter: hue-rotate(180deg);"></div>
                         <div class="fase-icon-container">
-                            <span class="text-4xl">🌍</span>
+                            <svg class="w-10 h-10 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
                         </div>
                     </div>
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
@@ -538,7 +599,7 @@
                             <span class="pixel-badge text-lg mb-3">1947-1948</span>
                             <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Perluasan</h4>
                             <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Ekspansi organisasi ke
-                                seluruh pelosok Nusantara termasuk Kalbar.</p>
+                                seluruh pelosok Nusantara.</p>
                         </div>
                         <button
                             class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
@@ -551,7 +612,10 @@
                     <div class="fase-pattern-box bg-amber-50">
                         <div class="islamic-bg" style="filter: hue-rotate(45deg);"></div>
                         <div class="fase-icon-container">
-                            <span class="text-4xl">🧱</span>
+                            <svg class="w-10 h-10 text-amber-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                            </svg>
                         </div>
                     </div>
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
@@ -559,7 +623,7 @@
                             <span class="pixel-badge text-lg mb-3">1948 - 1949</span>
                             <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Pengokohan</h4>
                             <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Konsolidasi sistem kaderisasi
-                                dan nilai dasar organisasi.</p>
+                                dan nilai dasar.</p>
                         </div>
                         <button
                             class="mt-4 text-[10px] font-bold text-pii-primary uppercase tracking-widest hover:underline">Baca
@@ -572,7 +636,11 @@
                     <div class="fase-pattern-box bg-purple-50">
                         <div class="islamic-bg" style="filter: hue-rotate(270deg);"></div>
                         <div class="fase-icon-container">
-                            <span class="text-4xl">🏛️</span>
+                            <svg class="w-10 h-10 text-purple-600" fill="none" stroke="currentColor"
+                                viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z" />
+                            </svg>
                         </div>
                     </div>
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
@@ -744,7 +812,8 @@
 
     <!-- SECTION: TAFSIR ASASI EXPLORER (NEW FEATURE) -->
     <section class="py-24 px-6 bg-white relative overflow-hidden">
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20">
+        <div class="absolute inset-0 opacity-20"
+            style="background-image: radial-gradient(#cbd5e1 1px, transparent 1px); background-size: 20px 20px;">
         </div>
         <div class="max-w-6xl mx-auto relative z-10">
             <div class="flex flex-col lg:flex-row gap-16 items-start">
@@ -887,7 +956,7 @@
                 <div
                     class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
                     <div class="aspect-[3/4] bg-purple-50 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="https://via.placeholder.com/300x400?text=TOKOH+4"
+                        <img src="https://via.placeholder.com/300x400?text=TOKOH+4" loading="lazy" decoding="async"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
                             <span
@@ -901,7 +970,7 @@
                 <div
                     class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
                     <div class="aspect-[3/4] bg-blue-50 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="https://via.placeholder.com/300x400?text=TOKOH+5"
+                        <img src="https://via.placeholder.com/300x400?text=TOKOH+5" loading="lazy" decoding="async"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
                             <span

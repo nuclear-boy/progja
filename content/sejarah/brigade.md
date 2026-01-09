@@ -1,7 +1,7 @@
 <div class="flow-root">
 <div class="float-left w-full md:w-5/12 mr-6 mb-4">
 <div class="border-4 border-red-100 rounded-2xl overflow-hidden shadow-lg transform rotate-2 hover:rotate-0 transition duration-300">
-<img src="./logo/bri.png" alt="Brigade PII" loading="lazy" decoding="async" class="w-full h-auto object-cover">
+<img src="./logo/bri.webp" alt="Brigade PII" loading="lazy" decoding="async" class="w-full h-auto object-cover">
 </div>
 <p class="text-xs text-center text-slate-500 mt-3 italic">Prajurit Brigade PII (1949)</p>
 </div>
