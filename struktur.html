@@ -383,7 +383,7 @@
 </head>
 
 <body class="hex-bg-light text-gray-800">
-    <!-- SKELETON LOADER -->
+    <!-- SKELETON LOADER (Script moved to bottom for performance) -->
     <div id="struktur-skeleton">
         <div class="sk-grid">
             <div class="sk-cell"></div>
@@ -398,27 +398,14 @@
         </div>
     </div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const sk = document.getElementById('struktur-skeleton');
-            const imgs = Array.from(document.images);
-            Promise.all(imgs.map(i => {
-                if (i.complete) return Promise.resolve();
-                return new Promise(r => { i.onload = i.onerror = r; });
-            })).then(() => {
-                sk.style.opacity = '0';
-                setTimeout(() => sk.style.display = 'none', 500);
-            });
-        });
-    </script>
-
     <!-- NAVBAR -->
     <nav
         class="sticky top-0 z-50 flex items-center justify-between px-6 md:px-10 py-4 bg-white/70 backdrop-blur-lg border-b border-gray-100">
         <div class="flex items-center space-x-8">
             <div class="text-2xl font-bold text-indigo-900">
                 <a href="index.html" class="block hover:opacity-80 transition transform active:scale-95">
-                    <img src="./logo/pwpii kalbar.webp"
+                    <!-- OPTIMASI: Tambahkan loading="lazy" pada logo -->
+                    <img src="./logo/pwpii kalbar.webp" loading="lazy" decoding="async"
                         onerror="this.src='https://via.placeholder.com/200x60?text=LOGO+PW+PII'" alt="Logo"
                         class="h-10 object-contain">
                 </a>
@@ -602,8 +589,9 @@
                     onclick="openProfile('ketum')" id="card-ketum">
                     <img src="./logo/Foto Pengurus/Ardi.webp" loading="lazy" decoding="async"
                         onerror="this.src='https://via.placeholder.com/150?text=Ardi'" alt="Ketum">
-                    <h3 class="text-lg font-bold text-gray-900">M. Ardiansyah</h3>
-                    <p class="text-indigo-600 text-xs font-bold uppercase tracking-wider mt-1">Ketua Umum</p>
+                    <h3 class="text-lg font-bold text-gray-900 break-words">M. Ardiansyah</h3>
+                    <p class="text-indigo-600 text-xs font-bold uppercase tracking-wider mt-1 break-words">Ketua Umum
+                    </p>
                 </div>
             </div>
 
@@ -612,16 +600,18 @@
                 id="lvl-2">
                 <div class="org-card w-full max-w-[240px] md:w-56" onclick="openProfile('sekum')" id="card-sekum">
                     <img src="./logo/Foto Pengurus/Joni Hatta.webp" alt="Sekum" loading="lazy" decoding="async">
-                    <h3 class="text-base font-bold text-gray-900">Joni Hatta</h3>
-                    <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1">Sekretaris Umum</p>
+                    <h3 class="text-base font-bold text-gray-900 break-words">Joni Hatta</h3>
+                    <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1 break-words">Sekretaris Umum
+                    </p>
                 </div>
                 <!-- Connector Line visual for mobile ONLY (vertical line) -->
                 <div class="block md:hidden w-1 h-8 bg-gray-300 -my-4 z-0"></div>
 
                 <div class="org-card w-full max-w-[240px] md:w-56" onclick="openProfile('bendum')" id="card-bendum">
                     <img src="./logo/Foto Pengurus/zahra.webp" alt="Bendum" loading="lazy" decoding="async">
-                    <h3 class="text-base font-bold text-gray-900">Habibah Zahra Alatas</h3>
-                    <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1">Bendahara Umum</p>
+                    <h3 class="text-base font-bold text-gray-900 break-words">Habibah Zahra Alatas</h3>
+                    <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1 break-words">Bendahara Umum
+                    </p>
                 </div>
             </div>
 
@@ -907,7 +897,45 @@
         </div>
     </footer>
 
+    <!-- 
+        [INSTRUKSI UNTUK USER - OPTIMASI GAMBAR]
+        Agar website lebih ringan (dari 130MB menjadi < 5MB):
+        1. Buka folder './logo/' dan './logo/Foto Pengurus/'.
+        2. Gunakan website seperti https://tinypng.com atau https://squoosh.app.
+        3. Kompres semua file foto (.png, .jpg) lalu convert ke format .webp.
+        4. Ganti file lama dengan file baru yang sudah dikompres.
+    -->
     <script>
+        // SKELETON LOADER LOGIC (Moved to bottom)
+        document.addEventListener("DOMContentLoaded", () => {
+            const sk = document.getElementById('struktur-skeleton');
+            // Fallback timeout to ensure loader doesn't stuck
+            setTimeout(() => {
+                if (sk) {
+                    sk.style.opacity = '0';
+                    setTimeout(() => sk.style.display = 'none', 500);
+                }
+            }, 1500); // Max wait 1.5s
+
+            // Native Lazy Loading Check
+            if ('loading' in HTMLImageElement.prototype) {
+                // Browser supports lazy loading, let it handle images
+            } else {
+                // Fallback for very old browsers (optional)
+            }
+
+            // Hide skeleton immediately if window is already loaded
+            if (document.readyState === 'complete') {
+                sk.style.opacity = '0';
+                setTimeout(() => sk.style.display = 'none', 500);
+            } else {
+                window.addEventListener('load', () => {
+                    sk.style.opacity = '0';
+                    setTimeout(() => sk.style.display = 'none', 500);
+                });
+            }
+        });
+
         // MOBILE MENU TOGGLE
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -1069,6 +1097,8 @@
             for (let i = 0; i < 20; i++) {
                 const img = document.createElement('img');
                 img.src = particles[Math.floor(Math.random() * particles.length)];
+                img.loading = "lazy"; // Add lazy loading to dynamic particles
+                img.decoding = "async";
                 img.className = 'context-particle absolute animate-float-random opacity-60';
 
                 let left = Math.random() * 100;
@@ -1205,6 +1235,9 @@
             const sekum = document.getElementById('card-sekum');
             const bendum = document.getElementById('card-bendum');
             const bidangs = ['card-bid1', 'card-bid2', 'card-bid3', 'card-bid4', 'card-bid5'];
+
+            // OPTIMASI: Skip drawing lines on mobile to save CPU
+            if (window.innerWidth < 768) return;
 
             if (!ketum) return;
 
