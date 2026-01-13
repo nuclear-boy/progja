@@ -10,6 +10,7 @@
     <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
     <link rel="dns-prefetch" href="https://cdn-icons-png.flaticon.com">
 
     <!-- Non-blocking Font Loading -->
@@ -382,7 +383,7 @@
     </style>
 </head>
 
-<body class="hex-bg-light text-gray-800">
+<body class="hex-bg-light text-slate-900 selection:bg-indigo-100 selection:text-indigo-900">
     <!-- SKELETON LOADER (Script moved to bottom for performance) -->
     <div id="struktur-skeleton">
         <div class="sk-grid">
@@ -404,8 +405,7 @@
         <div class="flex items-center space-x-8">
             <div class="text-2xl font-bold text-indigo-900">
                 <a href="index.html" class="block hover:opacity-80 transition transform active:scale-95">
-                    <!-- OPTIMASI: Tambahkan loading="lazy" pada logo -->
-                    <img src="./logo/pwpii kalbar.webp" loading="lazy" decoding="async"
+                    <img src="./logo/pwpii kalbar.webp" fetchpriority="high" decoding="async"
                         onerror="this.src='https://via.placeholder.com/200x60?text=LOGO+PW+PII'"
                         alt="Logo PW PII Kalbar" class="h-10 object-contain" width="160" height="40">
                 </a>
@@ -610,18 +610,20 @@
             <div class="level-2 flex flex-col md:flex-row flex-wrap justify-center items-center gap-8 md:gap-32 w-full"
                 id="lvl-2">
                 <div class="org-card w-full max-w-[240px] md:w-56" onclick="openProfile('sekum')" id="card-sekum">
-                    <img src="./logo/Foto Pengurus/Joni Hatta.webp" alt="Sekum" loading="lazy" decoding="async">
+                    <img src="./logo/Foto Pengurus/Joni Hatta.webp" alt="Joni Hatta - Sekretaris Umum" loading="lazy"
+                        decoding="async" width="90" height="90">
                     <h3 class="text-base font-bold text-gray-900 break-words">Joni Hatta</h3>
-                    <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1 break-words">Sekretaris Umum
+                    <p class="text-sky-700 text-xs font-bold uppercase tracking-wider mt-1 break-words">Sekretaris Umum
                     </p>
                 </div>
                 <!-- Connector Line visual for mobile ONLY (vertical line) -->
                 <div class="block md:hidden w-1 h-8 bg-gray-300 -my-4 z-0"></div>
 
                 <div class="org-card w-full max-w-[240px] md:w-56" onclick="openProfile('bendum')" id="card-bendum">
-                    <img src="./logo/Foto Pengurus/zahra.webp" alt="Bendum" loading="lazy" decoding="async">
+                    <img src="./logo/Foto Pengurus/zahra.webp" alt="Habibah Zahra Alatas - Bendahara Umum"
+                        loading="lazy" decoding="async" width="90" height="90">
                     <h3 class="text-base font-bold text-gray-900 break-words">Habibah Zahra Alatas</h3>
-                    <p class="text-sky-600 text-xs font-bold uppercase tracking-wider mt-1 break-words">Bendahara Umum
+                    <p class="text-sky-700 text-xs font-bold uppercase tracking-wider mt-1 break-words">Bendahara Umum
                     </p>
                 </div>
             </div>
@@ -630,30 +632,35 @@
             <div class="level-3 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 w-full px-4"
                 id="lvl-3">
                 <div class="org-card" onclick="openProfile('kaderisasi')" id="card-bid1">
-                    <img src="./logo/Foto Pengurus/Nur ‘Atira.webp" alt="Kaderisasi" loading="lazy" decoding="async">
+                    <img src="./logo/Foto Pengurus/Nur ‘Atira.webp" alt="Nur Atira - Bidang Kaderisasi" loading="lazy"
+                        decoding="async" width="90" height="90">
                     <h3 class="text-sm font-bold text-gray-900">Nur Atira</h3>
-                    <p class="text-emerald-600 text-[10px] font-bold uppercase mt-1">Bidang Kaderisasi</p>
+                    <p class="text-emerald-700 text-[10px] font-bold uppercase mt-1">Bidang Kaderisasi</p>
                 </div>
                 <div class="org-card" onclick="openProfile('ppo')" id="card-bid2">
-                    <img src="./logo/Foto Pengurus/Besiri.webp" alt="PPO" loading="lazy" decoding="async">
+                    <img src="./logo/Foto Pengurus/Besiri.webp" alt="Besirin - Bidang PPO" loading="lazy"
+                        decoding="async" width="90" height="90">
                     <h3 class="text-sm font-bold text-gray-900">Besirin, S.Psi</h3>
-                    <p class="text-emerald-600 text-[10px] font-bold uppercase mt-1">Bidang PPO</p>
+                    <p class="text-emerald-700 text-[10px] font-bold uppercase mt-1">Bidang PPO</p>
                 </div>
                 <div class="org-card" onclick="openProfile('komum')" id="card-bid3">
-                    <img src="./logo/Foto Pengurus/dita.webp" alt="Komum" loading="lazy" decoding="async">
+                    <img src="./logo/Foto Pengurus/dita.webp" alt="Dita Bengkayang - Bidang Komunikasi Umat"
+                        loading="lazy" decoding="async" width="90" height="90">
                     <h3 class="text-sm font-bold text-gray-900">Dita Bengkayang</h3>
-                    <p class="text-emerald-600 text-[10px] font-bold uppercase mt-1">Bidang Komunikasi Umat</p>
+                    <p class="text-emerald-700 text-[10px] font-bold uppercase mt-1">Bidang Komunikasi Umat</p>
                 </div>
                 <div class="org-card" onclick="openProfile('ekonomi')" id="card-bid4">
-                    <img src="./logo/Foto Pengurus/zahra.webp" alt="Ekonomi" loading="lazy" decoding="async">
+                    <img src="./logo/Foto Pengurus/zahra.webp" alt="Habibah Zahra - Bidang Ekonomi" loading="lazy"
+                        decoding="async" width="90" height="90">
                     <h3 class="text-sm font-bold text-gray-900">Habibah Zahra</h3>
-                    <p class="text-emerald-600 text-[10px] font-bold uppercase mt-1">Bidang Ekonomi</p>
+                    <p class="text-emerald-700 text-[10px] font-bold uppercase mt-1">Bidang Ekonomi</p>
                 </div>
                 <div class="org-card border-yellow-200 bg-yellow-50/50" onclick="openProfile('riset')" id="card-bid5">
                     <img src="./logo/Foto Pengurus/Fiqkri Putra Riswanda.webp" loading="lazy" decoding="async"
-                        onerror="this.src='https://via.placeholder.com/150?text=Riset'" alt="Riset">
+                        width="90" height="90" onerror="this.src='https://via.placeholder.com/150?text=Riset'"
+                        alt="Fiqkri Putra Riswanda - Bidang Riset">
                     <h3 class="text-sm font-bold text-gray-900">Fiqkri Putra Riswanda</h3>
-                    <p class="text-yellow-600 text-[10px] font-bold uppercase mt-1">Bidang Riset</p>
+                    <p class="text-yellow-700 text-[10px] font-bold uppercase mt-1">Bidang Riset</p>
                 </div>
             </div>
         </div>
@@ -1099,17 +1106,21 @@
 
             if (!data) return;
 
-            // Generate Background Particles
+            // Generate Background Particles Optimally
             const bgContainer = document.getElementById('modal-bg-anim');
-            bgContainer.innerHTML = ''; // Clear prev
+            bgContainer.innerHTML = '';
 
             const particles = roleThemes[roleKey] || roleThemes['ketum'];
+            const fragment = document.createDocumentFragment();
 
-            for (let i = 0; i < 20; i++) {
+            // Reduced particle count (8 instead of 20) for better network payload/performance
+            for (let i = 0; i < 8; i++) {
                 const img = document.createElement('img');
                 img.src = particles[Math.floor(Math.random() * particles.length)];
-                img.loading = "lazy"; // Add lazy loading to dynamic particles
+                img.loading = "lazy";
                 img.decoding = "async";
+                img.width = 40;
+                img.height = 40;
                 img.className = 'context-particle absolute animate-float-random opacity-60';
 
                 let left = Math.random() * 100;
@@ -1117,12 +1128,13 @@
 
                 img.style.left = left + '%';
                 img.style.top = top + '%';
-                img.style.width = (Math.random() * 40 + 30) + 'px';
-                img.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                img.style.width = (Math.random() * 30 + 20) + 'px';
+                img.style.animationDuration = (Math.random() * 10 + 10) + 's';
                 img.style.animationDelay = (Math.random() * 5) + 's';
 
-                bgContainer.appendChild(img);
+                fragment.appendChild(img);
             }
+            bgContainer.appendChild(fragment);
 
             document.getElementById('modal-name').innerText = data.name;
             document.getElementById('modal-pos').innerText = data.pos;
@@ -1239,34 +1251,50 @@
         modal.addEventListener('click', (e) => { if (e.target === modal) closeProfile(); });
         document.getElementById('gallery-modal').addEventListener('click', (e) => { if (e.target === document.getElementById('gallery-modal')) closeGallery(); });
 
+        // Throttled drawLines to avoid layout thrashing
+        let resizeTimer;
+        function throttledDraw() {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(drawLines, 100);
+        }
+
         function drawLines() {
             const svg = document.getElementById('connector-svg');
-            svg.innerHTML = '';
+            if (!svg) return;
+
+            // OPTIMASI: Skip drawing lines on mobile to save CPU
+            if (window.innerWidth < 768) {
+                svg.innerHTML = '';
+                return;
+            }
+
             const ketum = document.getElementById('card-ketum');
             const sekum = document.getElementById('card-sekum');
             const bendum = document.getElementById('card-bendum');
-            const bidangs = ['card-bid1', 'card-bid2', 'card-bid3', 'card-bid4', 'card-bid5'];
+            const bidIds = ['card-bid1', 'card-bid2', 'card-bid3', 'card-bid4', 'card-bid5'];
 
-            // OPTIMASI: Skip drawing lines on mobile to save CPU
-            if (window.innerWidth < 768) return;
+            if (!ketum || !sekum || !bendum) return;
 
-            if (!ketum) return;
+            // BATCH READS (Prevent layout thrashing)
+            const parentRect = svg.getBoundingClientRect();
+            const rectK = ketum.getBoundingClientRect();
+            const rectS = sekum.getBoundingClientRect();
+            const rectB = bendum.getBoundingClientRect();
+            const bidRects = bidIds.map(id => document.getElementById(id).getBoundingClientRect());
 
-            const getPos = (el) => {
-                const rect = el.getBoundingClientRect();
-                const parentRect = svg.getBoundingClientRect();
-                return {
-                    x: rect.left + rect.width / 2 - parentRect.left,
-                    y: rect.top + rect.height / 2 - parentRect.top,
-                    top: rect.top - parentRect.top,
-                    bottom: rect.bottom - parentRect.top
-                };
-            };
+            const getRelativePos = (rect) => ({
+                x: rect.left + rect.width / 2 - parentRect.left,
+                y: rect.top + rect.height / 2 - parentRect.top,
+                top: rect.top - parentRect.top,
+                bottom: rect.bottom - parentRect.top
+            });
 
-            const pK = getPos(ketum);
-            const pS = getPos(sekum);
-            const pB = getPos(bendum);
+            const pK = getRelativePos(rectK);
+            const pS = getRelativePos(rectS);
+            const pB = getRelativePos(rectB);
             const midY = (pK.bottom + pS.top) / 2;
+
+            svg.innerHTML = ''; // Start Batch Writes
 
             const path1 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
             path1.setAttribute('class', 'connector-path');
@@ -1275,20 +1303,14 @@
             svg.appendChild(path1);
 
             let minX = 99999, maxX = 0;
-            const pBids = [];
-            bidangs.forEach(id => {
-                const el = document.getElementById(id);
-                if (el) {
-                    const pos = getPos(el);
-                    pBids.push(pos);
-                    if (pos.x < minX) minX = pos.x;
-                    if (pos.x > maxX) maxX = pos.x;
-                }
+            const pBids = bidRects.map(r => getRelativePos(r));
+            pBids.forEach(pos => {
+                if (pos.x < minX) minX = pos.x;
+                if (pos.x > maxX) maxX = pos.x;
             });
 
             if (pBids.length > 0) {
-                const bidTopY = pBids[0].top;
-                const branchY = (pS.bottom + bidTopY) / 2;
+                const branchY = (pS.bottom + pBids[0].top) / 2;
                 const path2 = document.createElementNS('http://www.w3.org/2000/svg', 'path');
                 path2.setAttribute('class', 'connector-path');
                 let d2 = `M ${pK.x} ${midY} V ${branchY} H ${minX} M ${pK.x} ${branchY} H ${maxX}`;
@@ -1298,9 +1320,9 @@
             }
         }
 
-        window.addEventListener('resize', drawLines);
-        window.addEventListener('load', drawLines);
-        setTimeout(drawLines, 500); 
+        window.addEventListener('resize', throttledDraw);
+        window.addEventListener('load', throttledDraw);
+        setTimeout(throttledDraw, 800); 
     </script>
 </body>
 

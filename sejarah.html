@@ -14,6 +14,8 @@
     <!-- Performance Optimizations -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
 
     <!-- Non-blocking Font Loading -->
     <link
@@ -359,8 +361,8 @@
         <div class="flex items-center space-x-8">
             <div class="text-2xl font-bold text-indigo-900">
                 <a href="index.html">
-                    <img src="./logo/pwpii kalbar.webp" alt="Logo PW PII Kalbar" class="h-10 object-contain" width="160"
-                        height="40">
+                    <img src="./logo/pwpii kalbar.webp" fetchpriority="high" decoding="async" alt="Logo PW PII Kalbar"
+                        class="h-10 object-contain" width="160" height="40">
                 </a>
             </div>
             <div class="hidden md:flex space-x-6 text-gray-600 font-medium text-sm">
@@ -610,8 +612,8 @@
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
                         <div>
                             <span class="pixel-badge text-lg mb-3">1947</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Kesadaran</h4>
-                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Harapan untuk memusnahkan
+                            <h3 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Kesadaran</h3>
+                            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">Harapan untuk memusnahkan
                                 warisan kolonial</p>
                         </div>
                         <a href="content/sejarah/fase1.md"
@@ -635,8 +637,8 @@
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
                         <div>
                             <span class="pixel-badge text-lg mb-3">1947</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Kebangkitan</h4>
-                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Memenuhi Panggilan
+                            <h3 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Kebangkitan</h3>
+                            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">Memenuhi Panggilan
                                 Rasulullah.</p>
                         </div>
                         <a href="content/sejarah/fase2.md"
@@ -660,8 +662,8 @@
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
                         <div>
                             <span class="pixel-badge text-lg mb-3">1947-1948</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Perluasan</h4>
-                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Ekspansi organisasi ke
+                            <h3 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Perluasan</h3>
+                            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">Ekspansi organisasi ke
                                 seluruh pelosok Nusantara.</p>
                         </div>
                         <a href="content/sejarah/fase3.md"
@@ -685,8 +687,8 @@
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
                         <div>
                             <span class="pixel-badge text-lg mb-3">1948 - 1949</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Pengokohan</h4>
-                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Konsolidasi sistem kaderisasi
+                            <h3 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Pengokohan</h3>
+                            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">Konsolidasi sistem kaderisasi
                                 dan nilai dasar.</p>
                         </div>
                         <a href="content/sejarah/fase4.md"
@@ -711,8 +713,8 @@
                     <div class="p-6 text-center flex-grow flex flex-col justify-between">
                         <div>
                             <span class="pixel-badge text-lg mb-3">1949 - Now</span>
-                            <h4 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Mencipta</h4>
-                            <p class="text-xs text-slate-500 line-clamp-3 leading-relaxed">Membangun peradaban dan
+                            <h3 class="text-lg font-bold text-slate-900 mb-2 font-serif mt-2">Mencipta</h3>
+                            <p class="text-xs text-slate-600 line-clamp-3 leading-relaxed">Membangun peradaban dan
                                 memelihara nilai Islam di era modern.</p>
                         </div>
                         <a href="content/sejarah/fase5.md"
@@ -991,13 +993,13 @@
 
         <div class="relative max-w-6xl mx-auto">
             <!-- Nav Buttons -->
-            <button onclick="moveSlider(-1)"
+            <button onclick="moveSlider(-1)" aria-label="Slide Sebelumnya"
                 class="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white border border-gray-200 text-indigo-600 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-50 transition hidden md:flex">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
-            <button onclick="moveSlider(1)"
+            <button onclick="moveSlider(1)" aria-label="Slide Selanjutnya"
                 class="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white border border-gray-200 text-indigo-600 rounded-full flex items-center justify-center shadow-lg hover:bg-indigo-50 transition hidden md:flex">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -1012,7 +1014,8 @@
                 <div
                     class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
                     <div class="aspect-[3/4] bg-indigo-50 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="./logo/KB/munir.webp" loading="lazy" decoding="async"
+                        <img src="./logo/KB/munir.webp" alt="Drs. A. Munir, M.M" loading="lazy" decoding="async"
+                            width="288" height="384"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
                             <span
@@ -1020,13 +1023,14 @@
                         </div>
                     </div>
                     <h3 class="font-bold text-lg text-slate-900">Drs. A. Munir, M.M</h3>
-                    <p class="text-sm text-slate-500">Pendiri Sajadah Fajar & Yayasan Bina 45</p>
+                    <p class="text-sm text-slate-600">Pendiri Sajadah Fajar & Yayasan Bina 45</p>
                 </div>
                 <!-- Card 2 -->
                 <div
                     class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
                     <div class="aspect-[3/4] bg-green-50 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="./logo/KB/yapandi.webp" loading="lazy" decoding="async"
+                        <img src="./logo/KB/yapandi.webp" alt="Dr. H. Yapandi, M.Pd" loading="lazy" decoding="async"
+                            width="288" height="384"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
                             <span
@@ -1034,13 +1038,14 @@
                         </div>
                     </div>
                     <h3 class="font-bold text-lg text-slate-900">Dr. H. Yapandi, M.Pd</h3>
-                    <p class="text-sm text-slate-500">Wakil Dekan III FDKI IAIN Pontianak </p>
+                    <p class="text-sm text-slate-600">Wakil Dekan III FDKI IAIN Pontianak </p>
                 </div>
                 <!-- Card 3 -->
                 <div
                     class="w-72 bg-white border border-gray-200 p-4 rounded-2xl shadow-sm hover:shadow-xl transition flex-shrink-0 snap-center group">
                     <div class="aspect-[3/4] bg-yellow-50 rounded-xl mb-4 overflow-hidden relative">
-                        <img src="./logo/KB/herman.webp" loading="lazy" decoding="async"
+                        <img src="./logo/KB/herman.webp" alt="Dr. Herman Hofi Munawar" loading="lazy" decoding="async"
+                            width="288" height="384"
                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500 filter sepia-[0.3] group-hover:sepia-0">
                         <div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-black/70 to-transparent p-4">
                             <span
@@ -1048,7 +1053,7 @@
                         </div>
                     </div>
                     <h3 class="font-bold text-lg text-slate-900">Dr. Herman Hofi Munawar</h3>
-                    <p class="text-sm text-slate-500">Pengacara dan Pengamat Politik</p>
+                    <p class="text-sm text-slate-600">Pengacara dan Pengamat Politik</p>
                 </div>
                 <!-- Card 4 -->
                 <div
@@ -1123,14 +1128,14 @@
                     yang
                     fokus pada kaderisasi dan pendidikan untuk mewujudkan muslim yang cendekia dan pemimpin.</p>
                 <div class="flex space-x-4">
-                    <a href="#"
+                    <a href="#" aria-label="Instagram PW PII Kalbar"
                         class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-gradient-to-tr hover:from-yellow-400 hover:to-purple-600 transition">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
                                 d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
                         </svg>
                     </a>
-                    <a href="#"
+                    <a href="#" aria-label="YouTube PW PII Kalbar"
                         class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-red-600 transition">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -1138,7 +1143,7 @@
                         </svg>
                     </a>
                     <!-- FACEBOOK ICON -->
-                    <a href="#"
+                    <a href="#" aria-label="Facebook PW PII Kalbar"
                         class="w-10 h-10 bg-white/5 rounded-full flex items-center justify-center hover:bg-blue-600 transition">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                             <path
@@ -1203,7 +1208,7 @@
         class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 opacity-0 invisible">
         <div
             class="modal-content relative w-full max-w-3xl bg-white border border-gray-200 shadow-2xl rounded-2xl p-8 max-h-[85vh] overflow-y-auto transform scale-95">
-            <button onclick="closeInfo()"
+            <button onclick="closeInfo()" aria-label="Tutup Detail"
                 class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-red-50 text-gray-500 hover:text-red-500 rounded-full flex items-center justify-center transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
@@ -1231,7 +1236,7 @@
         class="fixed inset-0 z-[100] hidden items-center justify-center bg-slate-900/50 backdrop-blur-sm p-4 opacity-0 invisible">
         <div
             class="modal-content relative w-full max-w-2xl bg-white border border-gray-200 shadow-2xl rounded-2xl p-8 max-h-[85vh] overflow-y-auto transform scale-95">
-            <button onclick="closeInfo()"
+            <button onclick="closeInfo()" aria-label="Tutup Informasi"
                 class="absolute top-4 right-4 w-10 h-10 bg-gray-100 hover:bg-red-50 text-gray-500 hover:text-red-500 rounded-full flex items-center justify-center transition">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
@@ -1435,25 +1440,27 @@
             }, 400);
         }
 
-        // Generate Particles for Timeline
+        // Generate Particles for Timeline (Optimized)
         function createParticles() {
             const container = document.getElementById('particles-container');
             if (!container) return;
 
-            const particleCount = 15;
+            const fragment = document.createDocumentFragment();
+            const particleCount = 10; // Slightly reduced for performance
+
             for (let i = 0; i < particleCount; i++) {
                 const particle = document.createElement('div');
                 particle.className = 'particle';
 
-                // Random positioning
                 particle.style.left = Math.random() * 100 + '%';
                 particle.style.animationDuration = (8 + Math.random() * 10) + 's';
                 particle.style.animationDelay = Math.random() * 5 + 's';
                 particle.style.width = (4 + Math.random() * 8) + 'px';
                 particle.style.height = particle.style.width;
 
-                container.appendChild(particle);
+                fragment.appendChild(particle);
             }
+            container.appendChild(fragment);
         }
 
         // Initialize particles on page load
